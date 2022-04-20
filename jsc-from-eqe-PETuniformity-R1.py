@@ -1,12 +1,10 @@
-
-
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import numpy as np
 import pandas as pd
 
 
-#import csv data and initialize dataframes 
+#import csv data and initialize dataframes
 sheet_url = "https://docs.google.com/spreadsheets/d/1DlP7xF7aEk0xDsFkoAHK4fokn7nnX0AkwAXq0nBJSIs/edit#gid=389223940"
 url_1 = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
 
@@ -20,32 +18,32 @@ print(val)
 
 
 
-finalisc = pd.DataFrame(np.zeros([92, 13]))
+finalisc = pd.DataFrame(np.zeros([480, 13]))
 #GO FROM WAVELENGTH RANGE 200nm to 650nm
 finalisc.columns = ['a', 'b', 'c',
-                    'd', 
+                    'd',
                     'e', 'f','g','h','i','j','k','l','m']
 
-finalisc.iloc[:,0] = val.iloc[0:91,0]
-finalisc.iloc[:,1] = val.iloc[0:91,1]
-finalisc.iloc[:,2] = val.iloc[0:91,2]
-finalisc.iloc[:,3] = val.iloc[0:91,3]
-finalisc.iloc[:,4] = val.iloc[0:91,4]
-finalisc.iloc[:,5] = val.iloc[0:91,5]
-finalisc.iloc[:,6] = val.iloc[0:91,6]
-finalisc.iloc[:,7] = val.iloc[0:91,7]
-finalisc.iloc[:,8] = val.iloc[0:91,8]
-finalisc.iloc[:,9] = val.iloc[0:91,9]
-finalisc.iloc[:,10] = val.iloc[0:91,10]
-finalisc.iloc[:,11] = val.iloc[0:91,11]
-finalisc.iloc[:,12] = val.iloc[0:91,12]
+finalisc.iloc[:,0] = val.iloc[0:461,0]
+finalisc.iloc[:,1] = val.iloc[0:461,1]
+finalisc.iloc[:,2] = val.iloc[0:461,2]
+finalisc.iloc[:,3] = val.iloc[0:461,3]
+finalisc.iloc[:,4] = val.iloc[0:461,4]
+finalisc.iloc[:,5] = val.iloc[0:461,5]
+finalisc.iloc[:,6] = val.iloc[0:461,6]
+finalisc.iloc[:,7] = val.iloc[0:461,7]
+finalisc.iloc[:,8] = val.iloc[0:461,8]
+finalisc.iloc[:,9] = val.iloc[0:461,9]
+finalisc.iloc[:,10] = val.iloc[0:461,10]
+finalisc.iloc[:,11] = val.iloc[0:461,11]
+finalisc.iloc[:,12] = val.iloc[0:461,12]
 
 
 #portion in which we sum the overall J, and determine the final Jsc
-#has an additional 1/100 factor as the transmission data is in 90% instead of 0.9 
-SUM1 = 5 * finalisc['e'].sum() 
-print(SUM1)
-SUM2 =  5 * finalisc['f'].sum()
+#has an additional 1/100 factor as the transmission data is in 90% instead of 0.9
+SUM1 = finalisc['e'].sum()
+print(SUM1/461)
+SUM2 =  finalisc['f'].sum()
 print(SUM2)
 SUM3 =  5 * finalisc['g'].sum()
 print(SUM3)
@@ -64,10 +62,10 @@ print(SUM9)
 
 
 
-#figure being scatter plotted and labeled 
+#figure being scatter plotted and labeled
 fig = go.Figure()
 fig = make_subplots(rows=1, cols=2, subplot_titles=("Full Wavelengths",
-                                                    "Degraded Wavelengths, most and least samples,))
+                                                    "Degraded Wavelengths, most and least samples",))
 fig.add_trace(go.Scatter(x=val.iloc[:, 0], y=val.iloc[:, 4],
                          mode='markers',
                          name='ALL post-suv'), row=1, col=1)
