@@ -28,7 +28,7 @@ for i in range(1, len(df.index)):
     else:
         if count > 1:
             newdf.iloc[i, :] = df.iloc[i, :]
-            newdf.iloc[i, 2] = (df.iloc[i, 2]+df.iloc[i-1, 2]) / count
+            newdf.iloc[i, 2] = (df.iloc[i, 2]+df.iloc[i+1, 2]) / count
         count = 1
     #print(count)
 print(newdf.iloc[0:12, :])
