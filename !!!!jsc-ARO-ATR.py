@@ -29,14 +29,19 @@ print(df)
 psuvO = atr_measure('O7')
 
 
+prsuvL = atr_measure('N3')
+psuvL = atr_measure('N7')
+
+
 fig = go.Figure()
 fig = make_subplots(rows=1, cols=2, subplot_titles=("O groups",
                                                     "L groups"))
-#fig.update_yaxes(range=[0, 100])
-#fig.update_xaxes(range=[200, 400])
 fig.update_yaxes(range=[0, 100], row=1, col=1)
 fig.update_yaxes(range=[0, 100], row=1, col=2)
 
+fig.update_xaxes(range=[200, 500], row=1, col=1)
+fig.update_xaxes(range=[200, 500], row=1, col=2)
+
 
 fig.add_trace(go.Scatter(x=df.iloc[:,0], y=prsuvO.iloc[:,0],
                     mode='lines',
@@ -58,22 +63,22 @@ fig.add_trace(go.Scatter(x=df.iloc[:,0], y=psuvO.iloc[:,2],
                     name='abs'),row=1, col=1)
 
 
-fig.add_trace(go.Scatter(x=df.iloc[:,0], y=prsuvO.iloc[:,0],
+fig.add_trace(go.Scatter(x=df.iloc[:,0], y=prsuvL.iloc[:,0],
                     mode='lines',
                     name='ref'),row=1, col=2)
-fig.add_trace(go.Scatter(x=df.iloc[:,0], y=prsuvO.iloc[:,1],
+fig.add_trace(go.Scatter(x=df.iloc[:,0], y=prsuvL.iloc[:,1],
                     mode='lines',
                     name='trans'),row=1, col=2)
-fig.add_trace(go.Scatter(x=df.iloc[:,0], y=prsuvO.iloc[:,2],
+fig.add_trace(go.Scatter(x=df.iloc[:,0], y=prsuvL.iloc[:,2],
                     mode='lines',
                     name='abs'),row=1, col=2)
-fig.add_trace(go.Scatter(x=df.iloc[:,0], y=psuvO.iloc[:,0],
+fig.add_trace(go.Scatter(x=df.iloc[:,0], y=psuvL.iloc[:,0],
                     mode='lines',
                     name='ref'),row=1, col=2)
-fig.add_trace(go.Scatter(x=df.iloc[:,0], y=psuvO.iloc[:,1],
+fig.add_trace(go.Scatter(x=df.iloc[:,0], y=psuvL.iloc[:,1],
                     mode='lines',
                     name='trans'),row=1, col=2)
-fig.add_trace(go.Scatter(x=df.iloc[:,0], y=psuvO.iloc[:,2],
+fig.add_trace(go.Scatter(x=df.iloc[:,0], y=psuvL.iloc[:,2],
                     mode='lines',
                     name='abs'),row=1, col=2)
 fig.show()
