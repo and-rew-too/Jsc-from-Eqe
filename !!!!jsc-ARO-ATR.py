@@ -23,14 +23,14 @@ def atr_measure(letternumber):
 
 
 
-prsuvO = atr_measure('O2')
+prsuvO = atr_measure('O7')
 print(prsuvO.iloc[:,2])
 print(df)
-psuvO = atr_measure('O7')
+psuvO = atr_measure('O2')
 
 
-prsuvL = atr_measure('N3')
-psuvL = atr_measure('N7')
+prsuvL = atr_measure('N7')
+psuvL = atr_measure('N3')
 
 
 fig = go.Figure()
